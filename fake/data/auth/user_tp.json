@@ -1,0 +1,14 @@
+{
+  "_id":"52da83a90870ded67d00012b",
+  "__v":83,
+  "firstname":"Alex",
+  "lastname":"Gaits",
+  "email":"alex@foxrey.com",
+  "username":"alexg",
+  "role":"owner",
+  "type": "tp",
+  "image":"http://www.anson-stoner.com/wp-content/uploads/faces_portraits_joey.jpg",
+  "fullname":"Alex Gaits",
+  "about":"I'm one of the developers of this app! Too!",
+  "activate":true
+}

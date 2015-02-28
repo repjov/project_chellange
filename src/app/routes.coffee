@@ -15,6 +15,7 @@ angular.module "foxrey"
       .state "about",
         url: "/about",
         templateUrl: "app/statics/about.html",
+        controller: "StaticsCtrl"
 
       .state "contact",
         url: "/contact",
