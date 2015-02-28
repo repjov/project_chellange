@@ -34,7 +34,7 @@ var deliveries = [
 ];
 
 app.get('/deliveries', function(req, res) {
-    if(req.headers.token && req.headers.token == token){
+    // if(req.headers.token && req.headers.token == token){
       var result = [];
       var filter = req.query;
       //немного говнокода не повредит
@@ -71,7 +71,7 @@ app.get('/deliveries', function(req, res) {
       }
 
       res.json(200, result);
-    } else {
-      res.json(403, {"status": 403, "error": "User is not authenticated"});
-    }
+    // } else {
+    //   res.json(403, {"status": 403, "error": "User is not authenticated"});
+    // }
 });
