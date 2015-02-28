@@ -1,12 +1,17 @@
 var express = require('express');
 var app = express();
-var bodyParser = require('body-parser');
+// var bodyParser = require('body-parser');
+var cors = require('express-cors');
 
 var port = 4444;
 
 app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.cookieParser());
+  app.use(cors({
+    allowedOrigins: ['localhost:*'],
+    headers: ['token']
+  }));
 });
 
 

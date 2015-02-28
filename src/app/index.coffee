@@ -7,6 +7,7 @@ angular.module "foxrey", ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 're
 
     #HTML5 URL routing
     $locationProvider.html5Mode
-        enabled: true
-        requireBase: false
-
+      enabled: true
+      requireBase: false
+  .run ($http)->
+    #here will be general and main variables and configurations
