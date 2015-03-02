@@ -9,14 +9,15 @@ angular.module "foxrey"
     $stateProvider
       .state "home",
         url: "/",
-        templateUrl: "app/main/main.html",
-        controller: "MainCtrl"
+        templateUrl: "app/main/main.html"
 
-      .state "about",
-        url: "/about",
-        templateUrl: "app/statics/about.html",
-        controller: "StaticsCtrl"
+      .state "shipper-signup",
+        url: "/shipper-signup",
+        templateUrl: "app/statics/shipper-signup.html",
+        controller: "formValid"
 
-      .state "contact",
-        url: "/contact",
-        templateUrl: "app/statics/contact.html"
+      .state "transporter-signup",
+        url: "/transporter-signup",
+        templateUrl: "app/statics/transporter-signup.html",
+        controller: "formValid"
+

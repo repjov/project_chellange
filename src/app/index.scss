@@ -12,5 +12,40 @@
     width: 50px;
   }
 }
+.btn{
+	text-transform: uppercase;
+}
+input[type="text"],input[type="password"],input[type="email"]{
+	display: block;
+	width:100%;
+	height:40px;
+	padding:0 15px;
+}
+.grey-block{
+	margin-top: 10px;
+	background-color: #ccc;
+	padding-bottom: 20px;
+	text-align:center;
+}
+.form-row{
+	margin-bottom:15px;
+}
+.tab{
+	text-transform: uppercase;
+	color:#fff;
+	font-size: 18px;
+	background-color: #8a9dae;
+	margin-bottom: 20px;
+	&.active{
+		background-color: #01bcd4;
+	}
+	&.done{
+		background-color: #323a45;
+	} 
+}
+h2{
+	font-size: 20px;
+	text-transform: uppercase;
+}
 // injector
 // endinjector

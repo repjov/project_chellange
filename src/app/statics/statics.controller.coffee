@@ -1,2 +1,4 @@
 angular.module "foxrey"
-  .controller "StaticsCtrl", ($scope) ->
+  .controller "formValid", ($scope) ->
+    $scope.create = (object, form) ->
+    console.log object if form.$valid
