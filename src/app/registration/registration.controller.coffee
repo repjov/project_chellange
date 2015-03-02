@@ -1,0 +1,2 @@
+# registration.controller.coffee
+

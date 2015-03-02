@@ -20,3 +20,16 @@ angular.module "foxrey"
       .state "contact",
         url: "/contact",
         templateUrl: "app/statics/contact.html"
+
+      .state "registration",
+        url: "/registration",
+        templateUrl: "app/registration/registration.html"
+        controller: "StaticsCtrl"
+
+      .state "registration.shipper",
+        url: "/shipper",
+        templateUrl: "app/statics/about.html" # "app/registration/shipper.html"
+
+      .state "registration.transport",
+        url: "/transport",
+        templateUrl: "app/registration/transport.html"
