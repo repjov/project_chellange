@@ -3,7 +3,7 @@
 #Main Routing
 angular.module "foxrey"
   .config ($stateProvider, $urlRouterProvider) ->
-    
+
     $urlRouterProvider.otherwise '/'
 
     $stateProvider
@@ -19,17 +19,17 @@ angular.module "foxrey"
 
       .state "contact",
         url: "/contact",
-        templateUrl: "app/statics/contact.html"
+        templateUrl: "/app/statics/contact.html"
 
       .state "registration",
         url: "/registration",
-        templateUrl: "app/registration/registration.html"
+        templateUrl: "/app/registration/registration.html"
         controller: "StaticsCtrl"
 
       .state "registration.shipper",
         url: "/shipper",
-        templateUrl: "app/statics/about.html" # "app/registration/shipper.html"
+        templateUrl: "/app/registration/shipper.html"
 
       .state "registration.transport",
         url: "/transport",
-        templateUrl: "app/registration/transport.html"
+        templateUrl: "/app/registration/transport.html"
