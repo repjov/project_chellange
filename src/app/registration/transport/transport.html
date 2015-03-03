@@ -56,14 +56,18 @@
           <div class="row">
             <div class="col-xs-6">
               <div class="input-group" ng-class="{'has-error': formCard.month.$dirty && formCard.month.$invalid}">
-                <input class="form-control" name="month" type="text" placeholder="MM" ng-model="user.card.month" required />
-                <span class="help-block" ng-show="formCard.month.$dirty && formCard.month.$error.required">Please provide your card expiration month</span>
+                <input class="form-control" name="month" type="number" min="0" max="12" placeholder="MM" ng-model="user.card.month" required />
+                <span class="help-block" ng-show="formCard.month.$dirty && formCard.month.$error.required">Month required</span>
+                <span class="help-block" ng-show="formCard.month.$dirty && formCard.month.$error.number">Not a number</span>
+                <span class="help-block" ng-show="formCard.month.$dirty && (formCard.month.$error.max || formCard.month.$error.min)">Wrong month</span>
               </div>
             </div>
             <div class="col-xs-6">
               <div class="input-group" ng-class="{'has-error': formCard.year.$dirty && formCard.year.$invalid}">
-                <input class="form-control" name="year" type="text" placeholder="YY" ng-model="user.card.year" required />
-                <span class="help-block" ng-show="formCard.year.$dirty && formCard.year.$error.required">Please provide your card expiration year</span>
+                <input class="form-control" name="year" type="number" min="0" max="3000" placeholder="YY" ng-model="user.card.year" required />
+                <span class="help-block" ng-show="formCard.year.$dirty && formCard.year.$error.required">Year required</span>
+                <span class="help-block" ng-show="formCard.year.$dirty && formCard.year.$error.number">Not a number</span>
+                <span class="help-block" ng-show="formCard.year.$dirty && (formCard.year.$error.max || formCard.year.$error.min)">Wrong year</span>
               </div>
             </div>
           </div>
