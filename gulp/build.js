@@ -29,7 +29,7 @@ gulp.task('html', ['inject', 'partials'], function () {
   var partialsInjectOptions = {
     starttag: '<!-- inject:partials -->',
     ignorePath: paths.tmp + '/partials',
-    addRootSlash: false
+    addRootSlash: true
   };
 
   var htmlFilter = $.filter('*.html');
