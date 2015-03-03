@@ -28,8 +28,9 @@ angular.module "foxrey"
 
       .state "registration.shipper",
         url: "/shipper",
-        templateUrl: "/app/registration/shipper.html"
+        templateUrl: "/app/registration/shipper/shipper.html"
+        controller: "RegisterShipperCtrl"
 
       .state "registration.transport",
         url: "/transport",
-        templateUrl: "/app/registration/transport.html"
+        templateUrl: "/app/registration/transport/transport.html"
