@@ -26,7 +26,7 @@ gulp.task('styles', function () {
     },
     starttag: '// injector',
     endtag: '// endinjector',
-    addRootSlash: false
+    addRootSlash: true
   };
 
   var indexFilter = $.filter('index.scss');
