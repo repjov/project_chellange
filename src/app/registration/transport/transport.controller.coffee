@@ -1,7 +1,7 @@
 angular.module "foxrey"
   .controller "RegisterTransportCtrl", ($scope) ->
     $scope.user = {}
-    $scope.activeTab = 3
+    $scope.activeTab = 1
 
     # TODO: move to config
     $scope.privateForm = '/app/registration/common/private-registration.html'

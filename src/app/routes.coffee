@@ -35,3 +35,8 @@ angular.module "foxrey"
         url: "/transport",
         templateUrl: "/app/registration/transport/transport.html"
         controller: "RegisterTransportCtrl"
+
+      .state "login",
+        url: "/login",
+        templateUrl: "/app/registration/login/login.html"
+        controller: "LoginCtrl"
