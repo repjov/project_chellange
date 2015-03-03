@@ -1,5 +1,5 @@
 angular.module "foxrey"
-  .controller "RegisterShipperCtrl", ($scope) ->
+  .controller "RegisterTransportCtrl", ($scope) ->
     $scope.user = {}
 
     # TODO: move to config
