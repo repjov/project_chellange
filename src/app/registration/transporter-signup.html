@@ -1,0 +1,65 @@
+<div class="row">
+	<div class="grey-block col-sm-6 col-sm-offset-3">
+		<h2>create a free transport provider account</h2>
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-2" ng-switch on="stepNumber">
+				<div ng-switch-when=1>
+					<div class="row">
+						<div class="tab col-sm-4 active">step 1</div>
+						<div class="tab col-sm-4">step 2</div>
+						<div class="tab col-sm-4">step 3</div>
+					</div>
+					<div class="row">
+						<form name="signUpStepForm" class="shipper-signup" ng-submit="dataPass(transporter, signUpStepForm)" novalidate>
+							<div class="form-row"><input name="First Name" ng-model="transporter.firstName" placeholder="First Name" type="text" required></div>
+							<div class="form-row"><input name="Last Name" ng-model="transporter.lastName" placeholder="Last Name" type="text" required></div>
+							<div class="form-row"><input name="Email" ng-model="transporter.email" placeholder="Email" type="email" required></div>
+							<div class="form-row"><input name="Password" ng-model="transporter.password" placeholder="Password" type="password" required></div>
+							<label class="form-row"><input ng-model="agreement" type="checkbox" required><span>Yes! Send me genuinely useful emails every now and then to help me get the most out of Foxrey.</span></label>
+							<button ng-model="submit" ng-disabled="!agreement" type="submit" class="btn btn-primary">get started</button>
+						</form>
+					</div>
+				</div>
+				<div ng-switch-when=2>
+					<div class="row">
+						<div class="tab col-sm-4 done">step 1</div>
+						<div class="tab col-sm-4 active">step 2</div>
+						<div class="tab col-sm-4">step 3</div>
+					</div>
+					<div class="row">
+						<form name="signUpStepForm" class="shipper-signup" ng-submit="dataPass(transporter, signUpStepForm)" novalidate>
+							<div class="form-row"><input required ng-model="transporter.companyName" name="Company_Name" placeholder="Company Name" type="text"></div>
+							<div class="form-row"><input required ng-model="transporter.visitingAddress" name="Visiting_Address" placeholder="Visiting Address" type="text"></div>
+							<div class="form-row"><input required ng-model="transporter.legalAddress" name="Legal_Adress" placeholder="Legal Adress" type="text"></div>
+							<div class="form-row"><input required ng-model="transporter.zipCode" name="ZIP_Code" placeholder="ZIP Code" type="text" ng-pattern="/[\u0030-\u0039]+/g"></div>
+							<div class="form-row"><input required ng-model="transporter.telephone" name="Telephone" placeholder="Telephone" type="text" ng-pattern="/[\u0030-\u0039]+/g"></div>
+							<div class="form-row"><input required ng-model="transporter.mobilePhone" name="Mobile_Phone" placeholder="Mobile Phone" type="text" ng-pattern="/[\u0030-\u0039]+/g"></div>
+							<button class="btn btn-primary">next step &#10142;</button>
+						</form>
+					</div>
+				</div>
+				<div ng-switch-when=3>
+					<div class="row">
+						<div class="tab col-sm-4 done">step 1</div>
+						<div class="tab col-sm-4 done">step 2</div>
+						<div class="tab col-sm-4 active">step 3</div>
+					</div>
+					<div class="row">
+						<form class="shipper-signup" novalidate>
+							<div class="form-row"><input ng-model="transporter.cardNumber" ng-pattern="/[\u0030-\u0039]+/g" required name="Card Number" placeholder="Card Number" type="text"></div>
+							<div class="form-row form-row--expired">
+								<span>Expired on:</span>
+								<input ng-model="transporter.expiredMonth" name="Expired_Month" ng-pattern="/^(0[1-9]|1[0-2])$/" required placeholder="MM" type="text"> / 
+								<input ng-minlength="2" ng-maxlength="2" ng-model="transporter.expiredYear" name="Expired_Year" ng-pattern="/[\u0030-\u0039]+/g" required placeholder="YY" type="text">
+							</div>
+							<div class="form-row"><input ng-model="transporter.nameOnCard" name="Name_on_Card" required placeholder="Name on Card" type="text"></div>
+							<button class="btn btn-primary">Get started</button>
+							<a href="#">SKIP THIS STEP</a>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+			
+	</div>
+</div>

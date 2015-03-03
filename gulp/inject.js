@@ -23,7 +23,7 @@ gulp.task('inject', ['styles', 'scripts'], function () {
 
   var injectOptions = {
     ignorePath: [paths.src, paths.tmp + '/serve'],
-    addRootSlash: false
+    addRootSlash: true
   };
 
   var wiredepOptions = {

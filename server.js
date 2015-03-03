@@ -10,7 +10,7 @@ app.configure(function(){
   app.use(express.cookieParser());
   app.use(cors({
     allowedOrigins: ['localhost:*'],
-    headers: ['token']
+    headers: ['token', 'Origin', 'X-Requested-With', 'Content-Type', 'Accept']
   }));
 });
 

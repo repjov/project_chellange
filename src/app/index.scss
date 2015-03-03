@@ -29,6 +29,14 @@ input[type="text"],input[type="password"],input[type="email"]{
 }
 .form-row{
 	margin-bottom:15px;
+	&--expired{
+		text-align: left;
+		input{
+			display: inline-block;
+			width:151px;
+			text-align: center;
+		}
+	}
 }
 .tab{
 	text-transform: uppercase;
@@ -46,6 +54,9 @@ input[type="text"],input[type="password"],input[type="email"]{
 h2{
 	font-size: 20px;
 	text-transform: uppercase;
+}
+.ng-invalid:focus, .ng-submitted input.ng-invalid{
+	outline: 2px solid #D57F7F;
 }
 // injector
 // endinjector

@@ -1,0 +1,26 @@
+<div ng-switch on="isRegistered">
+	<div class="row" ng-switch-when="true">
+		<div class="grey-block col-sm-6 col-sm-offset-3">
+			<h2>Autorize yourself</h2>
+			<div class="row">
+				<form name="autorizationForm" ng-submit="login(user, autorizationForm)" class="shipper-signup row col-sm-8 col-sm-offset-2" novalidate>
+					<div class="form-row"><input ng-model="user.email" placeholder="Email" type="email" required></div>
+					<div class="form-row"><input ng-model="user.password" placeholder="Password" type="password" required></div>
+					<button type="submit" class="btn btn-primary">Login</button>
+					<a href="#" ng-click="notRegistered()">Registration</a>
+				</form>  
+			</div>
+		</div>
+	</div>		
+
+	<div class="row first-view" ng-switch-when="false">
+		<div class="col-sm-4 col-sm-offset-1 grey-block">
+			<h2>i need transportation<br>deliveries</h2>
+			<a href="/shipper-signup" class="btn btn-primary">sign up as a shipper</a>
+		</div>
+		<div class="col-sm-4 col-sm-offset-2 grey-block">
+			<h2>i want to<br>transport delivery</h2>
+			<a href="/transporter-signup" class="btn btn-primary">sign up as a transporter provider</a>
+		</div>
+	</div>
+</div>  
