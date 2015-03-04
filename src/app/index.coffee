@@ -1,5 +1,5 @@
-angular.module "foxrey", ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'restangular', 'ui.router', 'ui.bootstrap']
-  .config ($httpProvider, $locationProvider, RestangularProvider) ->
+angular.module "foxrey", ['ngMessages', 'ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'restangular', 'ui.router', 'ui.bootstrap']
+  .config ($httpProvider, $locationProvider) ->
 
     #CORS configuration
     $httpProvider.defaults.useXDomain = true

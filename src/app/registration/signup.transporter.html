@@ -11,10 +11,10 @@
 					</div>
 					<div class="row">
 						<form name="signUpStepForm" class="shipper-signup" ng-submit="dataPass(transporter, signUpStepForm)" novalidate>
-							<div class="form-row"><input name="First Name" ng-model="transporter.firstName" placeholder="First Name" type="text" required></div>
-							<div class="form-row"><input name="Last Name" ng-model="transporter.lastName" placeholder="Last Name" type="text" required></div>
-							<div class="form-row"><input name="Email" ng-model="transporter.email" placeholder="Email" type="email" required></div>
-							<div class="form-row"><input name="Password" ng-model="transporter.password" placeholder="Password" type="password" required></div>
+							<div class="form-row"><input name="First_Name" ng-model="transporter.firstName" placeholder="First Name" type="text" required><div class="input-errors" ng-messages="signUpStepForm.First_Name.$error" ng-if='signUpStepForm.$submitted' class="input-errors" ng-messages-include="error-msg"></div></div>
+							<div class="form-row"><input name="Last_Name" ng-model="transporter.lastName" placeholder="Last Name" type="text" required><div class="input-errors" ng-messages="signUpStepForm.Last_Name.$error" ng-if='signUpStepForm.$submitted' class="input-errors" ng-messages-include="error-msg"></div></div>
+							<div class="form-row"><input name="Email" ng-model="transporter.email" placeholder="Email" type="email" required><div class="input-errors" ng-messages="signUpStepForm.Email.$error" ng-if='signUpStepForm.$submitted' class="input-errors" ng-messages-include="error-msg"></div></div>
+							<div class="form-row"><input name="Password" ng-model="transporter.password" placeholder="Password" type="password" required><div class="input-errors" ng-messages="signUpStepForm.Password.$error" ng-if='signUpStepForm.$submitted' class="input-errors" ng-messages-include="error-msg"></div></div>
 							<label class="form-row"><input ng-model="agreement" type="checkbox" required><span>Yes! Send me genuinely useful emails every now and then to help me get the most out of Foxrey.</span></label>
 							<button ng-model="submit" ng-disabled="!agreement" type="submit" class="btn btn-primary">next step &#10142;</button>
 						</form>
@@ -28,12 +28,12 @@
 					</div>
 					<div class="row">
 						<form name="signUpStepForm" class="shipper-signup" ng-submit="dataPass(transporter, signUpStepForm)" novalidate>
-							<div class="form-row"><input required ng-model="transporter.companyName" name="Company_Name" placeholder="Company Name" type="text"></div>
-							<div class="form-row"><input required ng-model="transporter.visitingAddress" name="Visiting_Address" placeholder="Visiting Address" type="text"></div>
-							<div class="form-row"><input required ng-model="transporter.legalAddress" name="Legal_Adress" placeholder="Legal Adress" type="text"></div>
-							<div class="form-row"><input required ng-model="transporter.zipCode" name="ZIP_Code" placeholder="ZIP Code" type="text" ng-pattern="/[\u0030-\u0039]+/g"></div>
-							<div class="form-row"><input required ng-model="transporter.telephone" name="Telephone" placeholder="Telephone" type="text" ng-pattern="/[\u0030-\u0039]+/g"></div>
-							<div class="form-row"><input required ng-model="transporter.mobilePhone" name="Mobile_Phone" placeholder="Mobile Phone" type="text" ng-pattern="/[\u0030-\u0039]+/g"></div>
+							<div class="form-row"><div class="input-errors" ng-messages="signUpStepForm.Company_Name.$error" ng-if='signUpStepForm.$submitted' class="input-errors" ng-messages-include="error-msg"></div><input required ng-model="transporter.companyName" name="Company_Name" placeholder="Company Name" type="text"></div>
+							<div class="form-row"><div class="input-errors" ng-messages="signUpStepForm.Visiting_Address.$error" ng-if='signUpStepForm.$submitted' class="input-errors" ng-messages-include="error-msg"></div><input required ng-model="transporter.visitingAddress" name="Visiting_Address" placeholder="Visiting Address" type="text"></div>
+							<div class="form-row"><div class="input-errors" ng-messages="signUpStepForm.Legal_Adress.$error" ng-if='signUpStepForm.$submitted' class="input-errors" ng-messages-include="error-msg"></div><input required ng-model="transporter.legalAddress" name="Legal_Adress" placeholder="Legal Adress" type="text"></div>
+							<div class="form-row"><div class="input-errors" ng-messages="signUpStepForm.ZIP_Code.$error" ng-if='signUpStepForm.$submitted' class="input-errors" ng-messages-include="error-msg"><div ng-message="pattern">Field contains only numbers</div></div><input required ng-model="transporter.zipCode" name="ZIP_Code" placeholder="ZIP Code" type="text" ng-pattern="/[\u0030-\u0039]+/g"></div>
+							<div class="form-row"><div class="input-errors" ng-messages="signUpStepForm.Telephone.$error" ng-if='signUpStepForm.$submitted' class="input-errors" ng-messages-include="error-msg"><div ng-message="pattern">Field contains only numbers</div></div><input required ng-model="transporter.telephone" name="Telephone" placeholder="Telephone" type="text" ng-pattern="/[\u0030-\u0039]+/g"></div>
+							<div class="form-row"><div class="input-errors" ng-messages="signUpStepForm.Mobile_Phone.$error" ng-if='signUpStepForm.$submitted' class="input-errors" ng-messages-include="error-msg"><div ng-message="pattern">Field contains only numbers</div></div><input required ng-model="transporter.mobilePhone" name="Mobile_Phone" placeholder="Mobile Phone" type="text" ng-pattern="/[\u0030-\u0039]+/g"></div>
 							<button class="btn btn-primary">next step &#10142;</button>
 						</form>
 					</div>
@@ -45,14 +45,17 @@
 						<div class="tab col-sm-4 active">step 3</div>
 					</div>
 					<div class="row">
-						<form class="shipper-signup" novalidate>
-							<div class="form-row"><input ng-model="transporter.cardNumber" ng-pattern="/[\u0030-\u0039]+/g" required name="Card Number" placeholder="Card Number" type="text"></div>
+						<form name="signUpStepForm" class="shipper-signup" novalidate>
+							<div class="form-row"><input ng-model="transporter.cardNumber" ng-pattern="/[\u0030-\u0039]+/g" required name="Card_Number" placeholder="Card Number" type="text"><div class="input-errors" ng-messages="signUpStepForm.Card_Number.$error" ng-if='signUpStepForm.$submitted' class="input-errors" ng-messages-include="error-msg"><div ng-message="pattern">Field contains only numbers</div></div></div>
 							<div class="form-row form-row--expired">
 								<span>Expired on:</span>
 								<input ng-model="transporter.expiredMonth" name="Expired_Month" ng-pattern="/^(0[1-9]|1[0-2])$/" required placeholder="MM" type="text"> / 
 								<input ng-minlength="2" ng-maxlength="2" ng-model="transporter.expiredYear" name="Expired_Year" ng-pattern="/[\u0030-\u0039]+/g" required placeholder="YY" type="text">
+								<div class="input-errors" ng-messages="signUpStepForm.Expired_Month.$error" ng-if='signUpStepForm.$submitted' class="input-errors" ng-messages-include="error-msg"><div ng-message="pattern">Invalid month</div></div>
+								<div class="input-errors" ng-messages="signUpStepForm.Expired_Year.$error" ng-if='signUpStepForm.$submitted' class="input-errors" ng-messages-include="error-msg"><div ng-message="pattern">Field contains only numbers</div></div>
 							</div>
-							<div class="form-row"><input ng-model="transporter.nameOnCard" name="Name_on_Card" required placeholder="Name on Card" type="text"></div>
+							<div class="form-row"><input ng-model="transporter.nameOnCard" name="Name_on_Card" required placeholder="Name on Card" type="text">
+							<div class="input-errors" ng-messages="signUpStepForm.Name_on_Card.$error" ng-if='signUpStepForm.$submitted' class="input-errors" ng-messages-include="error-msg"><div ng-message="pattern">Field contains only numbers</div></div></div>
 							<button class="btn btn-primary">Get started</button>
 							<a href="#">SKIP THIS STEP</a>
 						</form>
@@ -63,3 +66,10 @@
 			
 	</div>
 </div>
+
+<script type="text/ng-template" id="error-msg">
+	<div ng-message="email">Email is not valid</div>
+	<div ng-message="minlength">Value is too short</div>
+	<div ng-message="maxlength">Value is too long</div>
+	<div ng-message="required">This is required field</div>
+</script>

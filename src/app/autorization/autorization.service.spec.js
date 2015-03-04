@@ -25,11 +25,8 @@ describe('Unit: Testing AuthService', function(){
             "email": "sheeper@tp.com",
             "password": "qwerty123"
           }
-          //console.log(AuthService.loginByCred(credentials));
       httpBackend.expectPOST('http://localhost:4444/api/v1/login').respond({
-        result: {
           "token": "098f6bcd4621d373cade4e832627b4f6"
-        }
       });
       httpBackend.expectGET('http://localhost:4444/api/v1/users').respond({
           "_id": "52da83a90870ded67d00012b",

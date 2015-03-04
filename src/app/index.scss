@@ -28,7 +28,8 @@ input[type="text"],input[type="password"],input[type="email"]{
 	text-align:center;
 }
 .form-row{
-	margin-bottom:15px;
+	margin-bottom:20px;
+	position: relative;
 	&--expired{
 		text-align: left;
 		input{
@@ -36,6 +37,17 @@ input[type="text"],input[type="password"],input[type="email"]{
 			width:151px;
 			text-align: center;
 		}
+	}
+}
+.input-errors{
+	position: absolute;
+	color:#D57F7F;
+	left: 100%;
+	margin-left: 10px;
+	white-space: nowrap;
+	top:0;
+	& + .input-errors{
+		margin-top:20px;
 	}
 }
 .tab{
@@ -55,7 +67,7 @@ h2{
 	font-size: 20px;
 	text-transform: uppercase;
 }
-.ng-invalid:focus, .ng-submitted input.ng-invalid{
+.ng-submitted input.ng-invalid{
 	outline: 2px solid #D57F7F;
 }
 // injector
