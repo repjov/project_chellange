@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module "foxrey"
-  .factory 'AuthService', ($http, Session, config) ->
+  .factory 'AuthService', ($http, Session, config, localStorageService, api) ->
     class AuthService
       contructor: ->
         @login()
@@ -9,12 +9,18 @@ angular.module "foxrey"
         @isAuthorized()
         @getToken()
         @wrapActions()
+        @getUserInfo()
 
       login: (credentials) ->
         $http.post(config.auth.apiUrl + config.auth.emailSignInPath, credentials)
           .then (res) ->
-            Session.create(res.data.token)
+            localStorageService.set 'auth', res.data
             res.data
+      getUserInfo: ->
+        api.getUser(localStorageService.get 'auth')
+          .then (info) ->
+            Session.create info
+            info
       isAuthenticated: ->
         !!Session.token
       isAuthorized: (authorizedRoles) =>

@@ -15,10 +15,10 @@ angular.module "foxrey"
     #   "fullname":"Kirill Zhurin",
     #   "about":"I'm one of the developers of this app! Too!",
     #   "activate":true
-    @create = (token) =>
-      @token = token
+    @create = (obj) =>
+      @obj = obj
 
     @destroy = =>
-      @token = null
+      @obj = null
 
     @

@@ -1,16 +1,16 @@
 'use strict'
 
 angular.module "foxrey"
-  .factory 'api', ($http, AuthService, config) ->
+  .factory 'api', ($http, config) ->
     class Api
       contructor: ->
 
-      getUser: ->
+      getUser: (obj)->
         req =
           method: 'GET'
           url: config.auth.apiUrl + config.auth.getUser
           headers:
-            token: AuthService.getToken()
+            token: obj.token
 
         $http(req)
           .then (res) ->

@@ -1,18 +1,15 @@
 'use strict'
 
 angular.module "foxrey"
-  .controller "LoginCtrl", ($scope, $auth, $state, localStorageService, config, AuthService, $http, api) ->
+  .controller "LoginCtrl", ($scope, $state, config, AuthService) ->
 
     $scope.login = (user) ->
-      AuthService.login user
-        .then (resp) ->
-          console.log resp
-          submit 'auth', resp.data
-          api.getUser().then (info) ->
-              console.log 'user', info
+      AuthService.login(user).then (resp) ->
+        console.log resp
+        AuthService.getUserInfo().then (info) ->
+          console.log info
 
         .catch (resp) ->
           console.log 'error', resp
 
     submit = (key, val) ->
-      localStorageService.set(key, val)
