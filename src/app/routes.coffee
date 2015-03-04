@@ -22,21 +22,32 @@ angular.module "foxrey"
         templateUrl: "/app/statics/contact.html"
 
       .state "registration",
-        url: "/registration",
+        url: "/registration"
         templateUrl: "/app/registration/registration.html"
         controller: "StaticsCtrl"
 
       .state "registration.shipper",
-        url: "/shipper",
+        url: "/shipper"
         templateUrl: "/app/registration/shipper/shipper.html"
         controller: "RegisterShipperCtrl"
 
       .state "registration.transport",
-        url: "/transport",
+        url: "/transport"
         templateUrl: "/app/registration/transport/transport.html"
         controller: "RegisterTransportCtrl"
 
       .state "login",
-        url: "/login",
+        url: "/login"
         templateUrl: "/app/registration/login/login.html"
         controller: "LoginCtrl"
+
+      .state "auth",
+        url: ""
+        templateUrl: '<ui-view/>'
+        reslove:
+          auth: ($auth) ->
+            $auth.validateUser
+
+      .state "auth.dashboard",
+        url: "/dashboard"
+        templateUrl: "app/main/dashboard/dashboard.html"

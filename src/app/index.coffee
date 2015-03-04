@@ -9,8 +9,10 @@ angular.module("foxrey", [
   'ui.router'
   'ui.bootstrap'
   'ng-token-auth'
+  'permission'
+  'LocalStorageModule'
 ])
-  .config ($httpProvider, $locationProvider, $authProvider, configProvider) ->
+  .config ($httpProvider, $locationProvider, $authProvider, config) ->
 
     #CORS configuration
     $httpProvider.defaults.useXDomain = true
@@ -23,7 +25,7 @@ angular.module("foxrey", [
       requireBase: false
 
     #ng-token-auth
-    $authProvider.configure configProvider.getAuth()
+    $authProvider.configure config.auth
 
   .run ['$rootScope', '$state', '$stateParams', '$http', ($rootScope, $state, $stateParams, $http) ->
     #here will be general and main variables and configurations
@@ -34,4 +36,7 @@ angular.module("foxrey", [
     # to active whenever 'contacts.list' or one of its decendents is active.
     $rootScope.$state = $state
     $rootScope.$stateParams = $stateParams
+
+    # prevent access to a state
+    $rootScope.$on '$stateChangeStart'
   ]
