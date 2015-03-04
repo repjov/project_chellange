@@ -10,22 +10,31 @@ angular.module "foxrey"
         @getToken()
         @wrapActions()
         @getUserInfo()
+        @user()
 
       login: (credentials) ->
         $http.post(config.auth.apiUrl + config.auth.emailSignInPath, credentials)
           .then (res) ->
             localStorageService.set 'auth', res.data
             res.data
+      logout: ->
+        api.logout(localStorageService.get 'auth')
+          .then (res) ->
+            res
+      user: ->
+        localStorageService.get 'userInfo' if @isAuthenticated
       getUserInfo: ->
         api.getUser(localStorageService.get 'auth')
           .then (info) ->
+            localStorageService.set 'userInfo', info
             Session.create info
             info
       isAuthenticated: ->
-        !!Session.token
+        !!Session.user
       isAuthorized: (authorizedRoles) =>
         authorizedRoles = [authorizedRoles] if !angular.isArray(authorizedRoles)
-        @isAuthenticated() && authorizedRoles.indexOf(Session.userRole) != -1
+        console.log localStorageService.get 'userInfo'
+        @isAuthenticated() && authorizedRoles.indexOf(Session.user.role) != -1
       getToken: ->
         Session.token
       wrapActions: (resource, actions) ->

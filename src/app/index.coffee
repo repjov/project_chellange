@@ -8,16 +8,14 @@ angular.module("foxrey", [
   'restangular'
   'ui.router'
   'ui.bootstrap'
-  'ng-token-auth'
   'permission'
   'LocalStorageModule'
 ])
-  .config ($httpProvider, $locationProvider, $authProvider, config) ->
+  .config ($httpProvider, $locationProvider, config) ->
 
     #CORS configuration
     $httpProvider.defaults.useXDomain = true
     delete $httpProvider.defaults.headers.common['X-Requested-With']
-    $httpProvider.defaults.headers.get['If-Modified-Since'] = '0';
 
     #HTML5 URL routing
     $locationProvider.html5Mode
@@ -25,10 +23,10 @@ angular.module("foxrey", [
       requireBase: false
 
     #ng-token-auth
-    $authProvider.configure config.auth
+    # $authProvider.configure config.auth
 
-  .run(['$rootScope', '$state', '$stateParams', '$http', 'Permission', 'AuthService', (
-      $rootScope, $state, $stateParams, $http, Permission, AuthService) ->
+  .run(['$rootScope', '$state', '$stateParams', '$http', 'Permission', (
+      $rootScope, $state, $stateParams, $http, Permission) ->
     #here will be general and main variables and configurations
 
     # It's very handy to add references to $state and $stateParams to the $rootScope
@@ -38,9 +36,9 @@ angular.module("foxrey", [
     $rootScope.$state = $state
     $rootScope.$stateParams = $stateParams
 
-    Permission.defineRole 'tp', (stateParams) ->
-      isAuthorized 'tp'
+    # Permission.defineRole 'tp', (stateParams) ->
+    #   isAuthorized 'tp'
 
-    Permission.defineRole 'shipper', (stateParams) ->
-      isAuthorized 'shipper'
+    # Permission.defineRole 'shipper', (stateParams) ->
+    #   isAuthorized 'shipper'
   ])

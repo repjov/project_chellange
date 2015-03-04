@@ -42,7 +42,7 @@ angular.module "foxrey"
         controller: "LoginCtrl"
 
       .state "transport",
-        url: "/"
+        url: ""
         abstract: true
         templateUrl: '<ui-view/>'
         data:
@@ -55,7 +55,7 @@ angular.module "foxrey"
         templateUrl: "app/main/dashboard/dashboard.html"
 
       .state "shipper",
-        url: "/"
+        url: "/dashboard"
         abstract: true
         templateUrl: '<ui-view/>'
         data:
@@ -64,5 +64,5 @@ angular.module "foxrey"
             redirectTo: 'login'
 
       .state "shipper.dashboard",
-        url: "/dashboard"
+        url: ""
         templateUrl: "app/main/dashboard/dashboard.html"
