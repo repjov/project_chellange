@@ -5,9 +5,6 @@ angular.module "foxrey", ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 're
     $httpProvider.defaults.useXDomain = true
     delete $httpProvider.defaults.headers.common['X-Requested-With']
 
-    RestangularProvider
-      .setBaseUrl 'http://localhost:4444/api/v1'
-
     #HTML5 URL routing
     $locationProvider.html5Mode
       enabled: true

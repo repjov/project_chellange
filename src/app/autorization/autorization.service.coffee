@@ -2,37 +2,36 @@ angular.module "foxrey"
   .service 'AuthService', ($cookies, $http, Restangular) ->
 
     class AuthService
-      self = this
 
-      this.status =
+      @status =
         autorized: false
   
-      this.loginByCred = (cred) ->
+      @loginByCred = (cred) ->
   
         Restangular
             .all 'login'
             .post cred
-            .then (response) ->
-              console.log response.token
-              self.loginByToken response.token
+            .then (response) =>
+              @loginByToken response.token
   
-      this.loginByToken = (token) ->
+      @loginByToken = (token) ->
   
-        $http.defaults.headers.common['X-Token'] = token
+        $http.defaults.headers.common['token'] = token
   
         Restangular
-            .all 'users'
+            .one 'users'
             .get()
             .then (response) ->
-            $cookies.accessToken = token
-            self.status.autorized = true
-            return response
+              $cookies.accessToken = token
+              @status.autorized = true
+              console.log response
+              return response
   
-      this.logout = () ->
+      @logout = () ->
   
         Restangular
             .all 'logout'
             .get()
-            .then () ->
-              self.status.autorized = false
+            .then () =>
+              @status.autorized = false
               $cookies.accessToken = ''
