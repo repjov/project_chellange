@@ -1,5 +1,16 @@
-angular.module "foxrey", ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'restangular', 'ui.router', 'ui.bootstrap', 'ng-token-auth']
-  .config ($httpProvider, $locationProvider, $authProvider) ->
+'use strict'
+
+angular.module("foxrey", [
+  'ngAnimate'
+  'ngCookies'
+  'ngTouch'
+  'ngSanitize'
+  'restangular'
+  'ui.router'
+  'ui.bootstrap'
+  'ng-token-auth'
+])
+  .config ($httpProvider, $locationProvider, $authProvider, configProvider) ->
 
     #CORS configuration
     $httpProvider.defaults.useXDomain = true
@@ -12,13 +23,8 @@ angular.module "foxrey", ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 're
       requireBase: false
 
     #ng-token-auth
-    $authProvider.configure {
-      apiUrl: 'http://localhost:4444/api'
-      signOutUrl: '/v1/logout'
-      emailSignInPath: '/v1/login'
-      storage: 'localStorage'
-      handleLoginResponse: (response) -> response
-    }
+    $authProvider.configure configProvider
+
   .run ['$rootScope', '$state', '$stateParams', '$http', ($rootScope, $state, $stateParams, $http) ->
     #here will be general and main variables and configurations
 
@@ -28,6 +34,4 @@ angular.module "foxrey", ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 're
     # to active whenever 'contacts.list' or one of its decendents is active.
     $rootScope.$state = $state
     $rootScope.$stateParams = $stateParams
-
-
   ]
