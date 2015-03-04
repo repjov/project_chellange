@@ -13,6 +13,9 @@ angular.module "foxrey"
     @setAuth = (value) ->
       config.auth = value
 
+    @getAuth = ->
+      config.auth
+
     @$get = ->
       config
 

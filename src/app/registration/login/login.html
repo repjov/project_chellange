@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <form name="form" novalidate>
+        <div class="form-group" ng-class="{'has-error': (form.mail.$dirty && form.mail.$invalid) || (form.$submitted && form.mail.$error.required) || form.input.$error.email}">
+          <input type="email" name="mail" class="form-control" placeholder="E-mail" ng-model="user.email" required />
+          <span class="help-block" ng-show="(form.mail.$dirty && form.mail.$error.required) || (form.$submitted && form.mail.$error.required)">Required!</span>
+          <span class="help-block" ng-show="form.mail.$touched && form.mail.$error.email">Not valid!</span>
+        </div>
+        <div class="form-group" ng-class="{'has-error': (form.password.$dirty && form.password.$invalid) || (form.$submitted && form.password.$error.required)}">
+          <input type="password" name="password" class="form-control" ng-model="user.password" placeholder="Password" required />
+          <span class="help-block" ng-show="(form.password.$dirty && form.password.$error.required) || (form.$submitted && form.password.$error.required)">Required!</span>
+        </div>
+        <div class="form-group text-center">
+          <button type="submit" class="btn btn-primary" ng-click="form.$valid && login(user)">
+            <span>Login</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

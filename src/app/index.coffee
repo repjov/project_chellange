@@ -23,7 +23,7 @@ angular.module("foxrey", [
       requireBase: false
 
     #ng-token-auth
-    $authProvider.configure configProvider
+    $authProvider.configure configProvider.getAuth()
 
   .run ['$rootScope', '$state', '$stateParams', '$http', ($rootScope, $state, $stateParams, $http) ->
     #here will be general and main variables and configurations
