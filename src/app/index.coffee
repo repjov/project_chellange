@@ -27,7 +27,8 @@ angular.module("foxrey", [
     #ng-token-auth
     $authProvider.configure config.auth
 
-  .run ['$rootScope', '$state', '$stateParams', '$http', ($rootScope, $state, $stateParams, $http) ->
+  .run(['$rootScope', '$state', '$stateParams', '$http', 'Permission', 'AuthService', (
+      $rootScope, $state, $stateParams, $http, Permission, AuthService) ->
     #here will be general and main variables and configurations
 
     # It's very handy to add references to $state and $stateParams to the $rootScope
@@ -37,6 +38,9 @@ angular.module("foxrey", [
     $rootScope.$state = $state
     $rootScope.$stateParams = $stateParams
 
-    # prevent access to a state
-    $rootScope.$on '$stateChangeStart'
-  ]
+    Permission.defineRole 'tp', (stateParams) ->
+      isAuthorized 'tp'
+
+    Permission.defineRole 'shipper', (stateParams) ->
+      isAuthorized 'shipper'
+  ])

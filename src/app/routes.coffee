@@ -41,13 +41,28 @@ angular.module "foxrey"
         templateUrl: "/app/registration/login/login.html"
         controller: "LoginCtrl"
 
-      .state "auth",
-        url: ""
+      .state "transport",
+        url: "/"
+        abstract: true
         templateUrl: '<ui-view/>'
-        reslove:
-          auth: ($auth) ->
-            $auth.validateUser
+        data:
+          permissions:
+            only: ['tp']
+            redirectTo: 'login'
 
-      .state "auth.dashboard",
+      .state "transport.dashboard",
+        url: "/dashboard"
+        templateUrl: "app/main/dashboard/dashboard.html"
+
+      .state "shipper",
+        url: "/"
+        abstract: true
+        templateUrl: '<ui-view/>'
+        data:
+          permissions:
+            only: ['shipper']
+            redirectTo: 'login'
+
+      .state "shipper.dashboard",
         url: "/dashboard"
         templateUrl: "app/main/dashboard/dashboard.html"
