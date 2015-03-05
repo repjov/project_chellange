@@ -2,12 +2,26 @@
 	<div class="grey-block col-sm-6 col-sm-offset-3">
 		<h2>Autorize yourself</h2>
 		<div class="row">
-			<form name="autorizationForm" ng-submit="login(user, autorizationForm)" class="shipper-signup row col-sm-8 col-sm-offset-2" novalidate>
-				<div class="form-row"><input ng-model="user.email" placeholder="Email" type="email" required></div>
-				<div class="form-row"><input ng-model="user.password" placeholder="Password" type="password" required></div>
+			<form name="autorizationForm" ng-submit="login(cred, autorizationForm)" class="shipper-signup row col-sm-8 col-sm-offset-2" novalidate>
+				<div class="form-row">
+					<input ng-model="cred.email" placeholder="Email" name="Email" type="email" required>
+					<div class="input-errors" ng-messages="autorizationForm.Email.$error" ng-if="autorizationForm.$submitted" class="input-errors" ng-messages-include="error-msg"></div>
+				</div>
+				<div class="form-row">
+					<input ng-model="cred.password" name="Password" placeholder="Password" type="password" required>
+					<div class="input-errors" ng-messages="autorizationForm.Password.$error" ng-if="autorizationForm.$submitted" class="input-errors" ng-messages-include="error-msg"></div>
+				</div>
 				<button type="submit" class="btn btn-primary">Login</button>
 				<a href="/signup">Registration</a>
 			</form>  
 		</div>
+		<div class="error-message"></div>
 	</div>
 </div>
+
+<script type="text/ng-template" id="error-msg">
+	<div ng-message="email">Email is not valid</div>
+	<div ng-message="minlength">Value is too short</div>
+	<div ng-message="maxlength">Value is too long</div>
+	<div ng-message="required">This is required field</div>
+</script>

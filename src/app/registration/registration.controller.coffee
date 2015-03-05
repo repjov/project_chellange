@@ -7,6 +7,3 @@ angular.module "foxrey"
     $scope.dataPass = (object, form) ->
       if form.$valid
         $scope.stepNumber++ if $scope.stepNumber<3
-
-  .controller "autorizationCtrl", ($scope) ->
-    $scope.isRegistered = true

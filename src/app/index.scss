@@ -70,5 +70,13 @@ h2{
 .ng-submitted input.ng-invalid{
 	outline: 2px solid #D57F7F;
 }
+.error-message{
+	display: none;
+	text-align: center;
+	padding:20px;
+	background: #D57F7F;
+	color:#fff;
+	margin-top:20px;
+}
 // injector
 // endinjector

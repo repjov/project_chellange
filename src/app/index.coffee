@@ -1,4 +1,4 @@
-angular.module "foxrey", ['ngMessages', 'ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'restangular', 'ui.router', 'ui.bootstrap']
+angular.module "foxrey", ['ngMessages', 'ngAnimate', 'permission', 'ngCookies', 'ngTouch', 'ngSanitize', 'restangular', 'ui.router', 'ui.bootstrap', 'ngStorage']
   .config ($httpProvider, $locationProvider) ->
 
     #CORS configuration
@@ -9,5 +9,24 @@ angular.module "foxrey", ['ngMessages', 'ngAnimate', 'ngCookies', 'ngTouch', 'ng
     $locationProvider.html5Mode
       enabled: true
       requireBase: false
-  .run ($http)->
-    #here will be general and main variables and configurations
+
+  .run ($http, $sessionStorage, $rootScope, $state, $stateParams, Permission)->
+    
+    $rootScope.$state = $state
+    $rootScope.$stateParams = $stateParams
+    
+    Permission
+      .defineRole 'anonymous', (stateParams) ->
+        if !$sessionStorage.user
+          return true
+        return false
+      .defineRole 'shipper', (stateParams) ->
+        if $sessionStorage.user? && $sessionStorage.user.type = "sheeper"
+          return true
+        return false
+      .defineRole 'tp', (stateParams) ->
+        if $sessionStorage.user? && $sessionStorage.user.type = "tp"
+          return true
+        return false
+
+    

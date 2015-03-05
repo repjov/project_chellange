@@ -50,7 +50,7 @@ app.get('/logout', function(req, res) {
   if(req.headers.token && req.headers.token == token){
     user_sheeper.logged = false;
     user_TP.logged = false;
-    res.json(403, {"status": "ok"});
+    res.json(200, {"status": "ok"});
   } else {
     res.json(403, {"status": 403, "error": "User is not authenticated"});
   }

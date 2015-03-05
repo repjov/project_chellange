@@ -1,4 +1,8 @@
 angular.module "foxrey"
-  .controller "autorizationCtrl", ($scope, AuthService) ->
+  .controller "autorizationCtrl", ($scope, $timeout, AuthService) ->
     $scope.login = (key, form) ->
-      console.log AuthService.loginByCred key if form.$valid
+      if form.$valid
+        AuthService.loginByCred key
+        $timeout((() ->
+          $scope.$state.go 'inside')
+          100)
