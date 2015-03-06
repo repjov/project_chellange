@@ -78,5 +78,69 @@ h2{
 	color:#fff;
 	margin-top:20px;
 }
+.header{
+	height: 60px;
+	background-color: #e3e5ea;
+	&__user{
+		display: table;
+		float:right;
+		margin-top: 5px;
+		margin-right:15px;
+		&__img{
+			border-radius: 50%;
+			overflow: hidden;
+			height: 50px;
+			width:50px;
+			text-align:center;
+		}
+		&__name{
+			display: table-cell;
+			vertical-align: middle;
+			padding-left: 15px;
+		}	
+	}
+}
+.aside-menu{
+	background-color: #323a45;
+	&__top{
+		margin-bottom: 20px;
+		img{
+			display: block;
+			margin:0 auto;
+		}
+	}
+	&__tp{
+		text-transform: uppercase;
+		&__name{	
+			color:#fff;
+			font-size: 26px;
+		}
+		&__role{
+			color:#8395a3;
+			font-size:20px;
+		}
+	}
+	&__nav{
+		padding-left:  0;
+		&__list{
+			display: table;
+			width: 100%;		
+		}
+		li{
+			display: table-row;
+		}
+		a{
+			text-transform: uppercase;
+			color:#8395a3;
+			display: table-cell;
+			height: 40px;
+			text-align: left;
+			vertical-align: middle;
+			&:hover{
+				color:#fff;
+			}
+		}
+	}
+}
 // injector
 // endinjector

@@ -1,4 +1,14 @@
-angular.module "foxrey", ['ngMessages', 'ngAnimate', 'permission', 'ngCookies', 'ngTouch', 'ngSanitize', 'restangular', 'ui.router', 'ui.bootstrap', 'ngStorage']
+angular.module "foxrey",[
+  'ngMessages'
+  'ngAnimate'
+  'permission'
+  'ngCookies'
+  'ngTouch'
+  'ngSanitize'
+  'restangular'
+  'ui.router'
+  'ui.bootstrap'
+  'ngStorage']
   .config ($httpProvider, $locationProvider) ->
 
     #CORS configuration
@@ -12,9 +22,12 @@ angular.module "foxrey", ['ngMessages', 'ngAnimate', 'permission', 'ngCookies', 
 
   .run ($http, $sessionStorage, $rootScope, $state, $stateParams, Permission)->
     
-    $rootScope.$state = $state
     $rootScope.$stateParams = $stateParams
-    
+
+    $rootScope.$on '$stateChangeStart', () ->
+      if $sessionStorage.user
+        $rootScope.user = $sessionStorage.user
+
     Permission
       .defineRole 'anonymous', (stateParams) ->
         if !$sessionStorage.user
@@ -28,5 +41,4 @@ angular.module "foxrey", ['ngMessages', 'ngAnimate', 'permission', 'ngCookies', 
         if $sessionStorage.user? && $sessionStorage.user.type = "tp"
           return true
         return false
-
     

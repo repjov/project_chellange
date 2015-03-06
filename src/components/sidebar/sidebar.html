@@ -1,0 +1,27 @@
+<div class="aside-menu__top">
+	<div ng-if="user.type=='sheeper'" class="aside-menu__logo">
+		<img src="assets/images/logo.png" alt="">
+	</div>
+	<div ng-if="user.type=='tp'" class="aside-menu__tp">
+		<div class="aside-menu__tp__name">
+			{{user.fullname}}
+		</div>
+		<div class="aside-menu__tp__role">
+			({{user.role}})
+		</div>
+	</div>
+</div>
+<div class="aside-menu__nav">
+	<ul class="aside-menu__nav__list">
+		<li><a href="#">deliveries</a></li>
+		<li><a href="#">inbox</a></li>
+		<li><a href="#">payment history</a></li>
+		<li><a href="#">feedback</a></li>
+		<li ng-if="user.type=='tp'"><a href="#">user management</a></li>
+	</ul>
+	<ul class="aside-menu__nav__list">
+		<li><a href="#">customer support</a></li>
+		<li><a href="#">settings</a></li>
+		<li><a href="#" ng-click="logout()">logout</a></li>
+	</ul>
+</div>

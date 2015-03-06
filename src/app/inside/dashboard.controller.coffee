@@ -1,5 +1,4 @@
 angular.module "foxrey"
-  .controller "dashboardCtrl", ($scope, AuthService) ->
+  .controller "dashboardCtrl", ($scope, AuthService, $state) ->
     $scope.logout = () ->
       AuthService.logout()
-      $scope.$state.go 'home'

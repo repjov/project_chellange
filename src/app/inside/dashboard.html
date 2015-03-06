@@ -1,2 +1,6 @@
-inside view
-<button type="submit" ng-click="logout()" class="btn btn-primary">Logout</button>
+<div class="row">
+ 	<div ng-include="'components/sidebar/sidebar.html'" ng-if="user" class="col-xs-3 col-sm-3 aside-menu"></div>
+ 	<div class="col-xs-8 col-sm-8">
+		<div ng-include="'components/header/header.html'" class="header"></div>
+	</div>
+</div> 

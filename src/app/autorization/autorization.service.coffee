@@ -1,5 +1,5 @@
 angular.module "foxrey"
-  .service 'AuthService', ($cookies, $rootScope, $http, $sessionStorage, Restangular) ->
+  .service 'AuthService', ($cookies, $state, $rootScope, $http, $sessionStorage, Restangular) ->
 
     class AuthService
 
@@ -28,7 +28,8 @@ angular.module "foxrey"
                 $('.error-message').slideUp(200)
                 $cookies.accessToken = token
                 $sessionStorage.user = response
-                AuthService.autorized = true)
+                AuthService.autorized = true
+                $state.go 'inside')
               ((response) -> $('.error-message').html(response.data.error).slideDown(200)))
 
       @logout = () ->
@@ -37,7 +38,7 @@ angular.module "foxrey"
         delete $rootScope.user
         delete $http.defaults.headers.common['token']
         AuthService.autorized = false
-      
+        $state.go 'home'
         Restangular
             .one 'logout'
             .get()
