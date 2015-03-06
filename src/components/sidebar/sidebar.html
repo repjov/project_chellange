@@ -1,6 +1,6 @@
 <div class="aside-menu__top">
 	<div ng-if="user.type=='sheeper'" class="aside-menu__logo">
-		<img src="assets/images/logo.png" alt="">
+		<img src="/assets/images/logo.png" alt="">
 	</div>
 	<div ng-if="user.type=='tp'" class="aside-menu__tp">
 		<div class="aside-menu__tp__name">
@@ -13,7 +13,7 @@
 </div>
 <div class="aside-menu__nav">
 	<ul class="aside-menu__nav__list">
-		<li><a href="#">deliveries</a></li>
+		<li><a href="/deliveries" ui-sref-active='active' ui-sref="inside.deliveries">deliveries</a></li>
 		<li><a href="#">inbox</a></li>
 		<li><a href="#">payment history</a></li>
 		<li><a href="#">feedback</a></li>

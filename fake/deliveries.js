@@ -23,7 +23,6 @@ var deliveries = [
     "category": "office",
     "images":["http://www.americanfurnituredsgn.com/Merchant2/graphics/00000001/160_Mission_Table.jpg"]
   },
-  ,
   {
     "id": "583620",
     "name": "Luntic",

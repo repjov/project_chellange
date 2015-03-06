@@ -8,6 +8,7 @@ angular.module "foxrey",[
   'restangular'
   'ui.router'
   'ui.bootstrap'
+  'ncy-angular-breadcrumb'
   'ngStorage']
   .config ($httpProvider, $locationProvider) ->
 
@@ -24,7 +25,7 @@ angular.module "foxrey",[
     
     $rootScope.$stateParams = $stateParams
 
-    $rootScope.$on '$stateChangeStart', () ->
+    $rootScope.$on '$stateChangeSuccess', (event, toState, toParams, fromState, fromParams) ->
       if $sessionStorage.user
         $rootScope.user = $sessionStorage.user
 

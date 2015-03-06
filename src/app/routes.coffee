@@ -52,13 +52,33 @@ angular.module "foxrey"
 
       .state "inside",
         url: "/dashboard",
-        templateUrl: "/app/inside/dashboard.html",
+        templateUrl: "/app/inside/dashboard/dashboard.html",
         controller: "dashboardCtrl",
         data: {
           permissions: {
             except: ['anonymous'],
             redirectTo: 'home'
           }
+        },
+        ncyBreadcrumb: {
+          label: 'Dashboard'
         }
+
+      .state "inside.deliveries",
+        url: "/deliveries",
+        data:{
+          pageReq: {
+            title: 'Deliveries'
+          }
+        },
+        views:{
+          'AutorizedView@inside': {
+            templateUrl: "/app/inside/deliveries/deliveries.html"
+          }
+        }
+        ncyBreadcrumb: {
+          label: 'Deliveries'
+        }
+          
 
 
