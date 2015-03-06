@@ -1,21 +1,19 @@
 'use strict'
 
 angular.module "foxrey"
-  .factory 'AuthService', ($http, Session, config, localStorageService, api) ->
+  .factory 'AuthService', ($http, Session, config, localStorageService, API) ->
     class AuthService
       constructor: ->
 
 
       login: (credentials) ->
-
-        console.log @isAuthenticated()
-        $http.post(config.auth.apiUrl + config.auth.emailSignInPath, credentials)
+        API.post(config.apiUrl.signin, credentials)
           .then (res) =>
             localStorageService.set 'auth', res.data
             console.log @isAuthenticated()
             res.data
       logout: ->
-        api.logout(localStorageService.get 'auth')
+        API.logout()
           .then (res) ->
             localStorageService.remove 'auth'
             localStorageService.remove 'userInfo'
@@ -28,7 +26,7 @@ angular.module "foxrey"
       user: ->
         localStorageService.get 'userInfo' if @isAuthenticated
       getUserInfo: ->
-        api.getUser(localStorageService.get 'auth')
+        API.get(config.apiUrl.getUser)
           .then (info) ->
             localStorageService.set 'userInfo', info
             Session.create info

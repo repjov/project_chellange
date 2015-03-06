@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module "foxrey"
-  .controller "LoginCtrl", ($scope, $state, config, AuthService, $stateParams) ->
+  .controller "LoginCtrl", ($scope, $state, config, AuthService, $stateParams, API) ->
     $scope.login = (user) ->
       AuthService.login(user).then (res) ->
         console.log res

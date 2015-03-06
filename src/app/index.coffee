@@ -10,8 +10,9 @@ angular.module("foxrey", [
   'ui.bootstrap'
   'permission'
   'LocalStorageModule'
+  'js-data'
 ])
-  .config ($httpProvider, $locationProvider, config) ->
+  .config ($httpProvider, $locationProvider, config, DSProvider) ->
 
     #CORS configuration
     $httpProvider.defaults.useXDomain = true
@@ -22,8 +23,10 @@ angular.module("foxrey", [
       enabled: true
       requireBase: false
 
-  .run(['$rootScope', '$state', '$stateParams', '$http', 'Permission', 'config', 'AuthService', (
-      $rootScope, $state, $stateParams, $http, Permission, config, AuthService) ->
+    DSProvider.defaults.basePath = config.apiUrl.base
+
+  .run(['$rootScope', '$state', '$stateParams', '$http', 'Permission', 'config', 'AuthService', 'DS', (
+      $rootScope, $state, $stateParams, $http, Permission, config, AuthService, DS) ->
     #here will be general and main variables and configurations
 
     # Permission.defineRole 'tp', (stateParams) ->

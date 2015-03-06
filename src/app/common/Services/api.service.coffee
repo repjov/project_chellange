@@ -1,35 +1,26 @@
 'use strict'
 
 angular.module "foxrey"
-  .factory 'api', ($http, config) ->
+  .factory 'API', ($http, config, Session, DS, localStorageService, DSHttpAdapter) ->
     class Api
-      contructor: ->
-        @getUser
-        @logout
+      constructor: ->
+        # DSHttpAdapter.defaults.basePath = config.apiUrl.base
 
-      get: (slug, object) ->
-        $http.get([config.auth.apiUrl, slug].join('') )
+      token: ->
+        value = localStorageService.get 'auth'
+        console.log value
+        value = value.token if value
 
-      getUser: (obj)->
-        req =
-          method: 'GET'
-          url: config.auth.apiUrl + config.auth.getUser
-          headers:
-            token: obj.token
+      url: (slug) ->
+        [config.apiUrl.base, slug].join('')
 
-        $http(req)
-          .then (res) ->
-            res.data
+      get: (slug, object) =>
+        console.log "token used", @token()
+        DSHttpAdapter.GET @url(slug), {headers: { token: @token() }, params: object}
 
-      logout: (obj)->
-        req =
-          method: 'GET'
-          url: config.auth.apiUrl + config.auth.signout
-          headers:
-            token: obj.token
+      post: (slug, object, JSON) =>
+        DSHttpAdapter.POST @url(slug), object, {headers: { token: @token() }, params: JSON}
 
-        $http(req)
-          .then (res) ->
-            res.data
+
 
     new Api()

@@ -5,6 +5,6 @@ angular.module "foxrey"
     @register = () ->
       console.log $scope.user
 
-    @nextStep = () =>
+    @nextStep = () ->
       console.log $scope.user
       $scope.activeTab += 1
