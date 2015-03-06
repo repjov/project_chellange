@@ -16,9 +16,9 @@ angular.module "foxrey"
     #   "about":"I'm one of the developers of this app! Too!",
     #   "activate":true
     @create = (obj) =>
-      @user = obj
+      @type = obj.type
 
     @destroy = =>
-      @user = null
+      @type = null
 
     @

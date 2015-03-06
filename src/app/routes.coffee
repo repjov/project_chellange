@@ -42,13 +42,14 @@ angular.module "foxrey"
         controller: "LoginCtrl"
 
       .state "transport",
-        url: "/tp"
+        url: "/transport"
         abstract: true
         template: '<div ui-view></div>'
-        # data:
-        #   permissions:
-        #     only: [config.userRoles.transport]
-        #     redirectTo: 'login'
+        controller: "BaseTransportCtrl as base"
+        data:
+          permissions:
+            only: [config.userRoles.transport]
+            redirectTo: 'login'
 
       .state "transport.dashboard",
         url: "/dashboard"
@@ -58,10 +59,11 @@ angular.module "foxrey"
         url: "/shipper"
         abstract: true
         template: '<div ui-view></div>'
-        # data:
-        #   permissions:
-        #     only: [config.userRoles.shipper]
-        #     redirectTo: 'login'
+        controller: "baseShipperCtrl as base"
+        data:
+          permissions:
+            only: [config.userRoles.shipper]
+            redirectTo: 'login'
 
       .state "shipper.dashboard",
         url: "/dashboard"

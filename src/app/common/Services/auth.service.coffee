@@ -5,7 +5,6 @@ angular.module "foxrey"
     class AuthService
       constructor: ->
 
-
       login: (credentials) ->
         API.post(config.apiUrl.signin, credentials)
           .then (res) =>
@@ -29,14 +28,17 @@ angular.module "foxrey"
         API.get(config.apiUrl.getUser)
           .then (info) ->
             localStorageService.set 'userInfo', info
+            console.log 'creating session with', info
             Session.create info
             info
       isAuthenticated: ->
-        !!Session.user
+        !!Session.type
       isAuthorized: (authorizedRoles) =>
         authorizedRoles = [authorizedRoles] if !angular.isArray(authorizedRoles)
-        console.log localStorageService.get 'userInfo'
-        @isAuthenticated() && authorizedRoles.indexOf(Session.user.role) != -1
+        console.log authorizedRoles, Session.type
+        console.log 'logged in?', @isAuthenticated()
+        console.log authorizedRoles.indexOf(Session.type) != -1
+        @isAuthenticated() && authorizedRoles.indexOf(Session) != -1
       getToken: ->
         Session.user.token
       wrapActions: (resource, actions) ->
