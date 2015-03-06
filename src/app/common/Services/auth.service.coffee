@@ -11,9 +11,8 @@ angular.module "foxrey"
         console.log Session.type
       login: (credentials) ->
         API.post(config.apiUrl.signin, credentials)
-          .then (res) =>
+          .then (res) ->
             localStorageService.set 'auth', res.data
-            console.log @isAuthenticated()
             res.data
       logout: ->
         API.get(config.apiUrl.signout)

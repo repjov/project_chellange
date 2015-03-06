@@ -7,7 +7,7 @@
   <h1 class="text-center">Create a free transport provider account</h1>
   <div ng-show="activeTab == 1">
     <form role="form" class="form-horizontal" name="form">
-      <div ng-include="privateForm"></div>
+      <div ng-include="base.private"></div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary btn-block btn-lg" ng-disabled="form.$invalid" ng-click="nextStep()">Next step</button>
       </div>

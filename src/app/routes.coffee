@@ -9,12 +9,12 @@ angular.module "foxrey"
     $stateProvider
       .state "home",
         url: "/",
-        templateUrl: "app/main/main.html",
+        templateUrl: "/app/main/main.html",
         controller: "MainCtrl"
 
       .state "about",
         url: "/about",
-        templateUrl: "app/statics/about.html",
+        templateUrl: "/app/statics/about.html",
         controller: "StaticsCtrl"
 
       .state "contact",
