@@ -1,28 +1,30 @@
 <!-- registration.html -->
 
-<div ng-show="uiRouterState.current.name == 'registration'">
-	<div class="row">
-	  <div class="col-sm-6">
-	    <div class="thumbnail">
-	      <div class="caption">
-	        <h3 class="text-center">I need transportation deliveries</h3>
-	        <p class="text-center">
-	        	<button ui-sref=".shipper">sign up as a shipper</button>
-	        </p>
-	      </div>
-	    </div>
-	  </div>
-	  <div class="col-sm-6">
-	    <div class="thumbnail">
-	      <div class="caption">
-	        <h3 class="text-center">I want to transport delivery</h3>
-	        <p class="text-center">
-	        	<button ui-sref=".transport">sign up as a transport provider</button>
-	        </p>
-	      </div>
-	    </div>
-	  </div>
-	</div>
-</div>
+<div>
+  <div ng-show="uiRouterState.current.name == 'registration'">
+  	<div class="row">
+  	  <div class="col-sm-6">
+  	    <div class="thumbnail">
+  	      <div class="caption">
+  	        <h3 class="text-center">I need transportation deliveries</h3>
+  	        <p class="text-center">
+  	        	<button ui-sref=".shipper">sign up as a shipper</button>
+  	        </p>
+  	      </div>
+  	    </div>
+  	  </div>
+  	  <div class="col-sm-6">
+  	    <div class="thumbnail">
+  	      <div class="caption">
+  	        <h3 class="text-center">I want to transport delivery</h3>
+  	        <p class="text-center">
+  	        	<button ui-sref=".transport">sign up as a transport provider</button>
+  	        </p>
+  	      </div>
+  	    </div>
+  	  </div>
+  	</div>
+  </div>
 
-<div ui-view></div>
+  <div ui-view></div>
+</div>

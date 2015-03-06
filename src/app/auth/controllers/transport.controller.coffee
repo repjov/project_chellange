@@ -1,15 +1,10 @@
 angular.module "foxrey"
   .controller "RegisterTransportCtrl", ($scope) ->
-    $scope.user = {}
     $scope.activeTab = 1
 
-    # TODO: move to config
-    $scope.privateForm = '/app/registration/common/private-registration.html'
-    $scope.disclamier = '/app/registration/common/disclaimer-registration.html'
-
-    $scope.register = () ->
+    @register = () ->
       console.log $scope.user
 
-    $scope.nextStep = () ->
+    @nextStep = () =>
       console.log $scope.user
       $scope.activeTab += 1

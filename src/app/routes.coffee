@@ -23,22 +23,22 @@ angular.module "foxrey"
 
       .state "registration",
         url: "/registration"
-        templateUrl: "/app/registration/registration.html"
-        controller: "StaticsCtrl"
+        templateUrl: "/app/auth/views/registration.html"
+        controller: "BaseAuthCtrl as base"
 
       .state "registration.shipper",
         url: "/shipper"
-        templateUrl: "/app/registration/shipper/shipper.html"
+        templateUrl: "/app/auth/views/shipper.html"
         controller: "RegisterShipperCtrl"
 
       .state "registration.transport",
         url: "/transport"
-        templateUrl: "/app/registration/transport/transport.html"
+        templateUrl: "/app/auth/views/transport.html"
         controller: "RegisterTransportCtrl"
 
       .state "login",
         url: "/login"
-        templateUrl: "/app/registration/login/login.html"
+        templateUrl: "/app/auth/views/login.html"
         controller: "LoginCtrl"
 
       .state "transport",
@@ -47,12 +47,12 @@ angular.module "foxrey"
         template: '<div ui-view></div>'
         # data:
         #   permissions:
-        #     only: [config.]
+        #     only: [config.userRoles.transport]
         #     redirectTo: 'login'
 
       .state "transport.dashboard",
         url: "/dashboard"
-        templateUrl: "/app/main/dashboard/dashboard.html"
+        templateUrl: "/app/transport/views/dashboard.html"
 
       .state "shipper",
         url: "/shipper"
@@ -60,9 +60,9 @@ angular.module "foxrey"
         template: '<div ui-view></div>'
         # data:
         #   permissions:
-        #     only: ['shipper']
+        #     only: [config.userRoles.shipper]
         #     redirectTo: 'login'
 
       .state "shipper.dashboard",
         url: "/dashboard"
-        templateUrl: "/app/main/dashboard/dashboard.html"
+        templateUrl: "/app/shipper/views/dashboard.html"
