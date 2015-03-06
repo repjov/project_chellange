@@ -3,6 +3,9 @@
 angular.module "foxrey"
   .controller "LoginCtrl", ($scope, $state, config, AuthService, $stateParams) ->
 
+    ###
+    # @user {email: String, email: String}
+    ###
     $scope.login = (user) ->
       AuthService.login(user).then (res) ->
         console.log res
@@ -13,7 +16,7 @@ angular.module "foxrey"
             when 'sheeper' then db = 'shipper.dashboard'
             else db = 'home'
           console.log "path", db
-          $state.transitionTo(db, $stateParams, {reload: true, inherit: false, notify: false})
+          $state.go db
 
         .catch (res) ->
           console.log 'error', res

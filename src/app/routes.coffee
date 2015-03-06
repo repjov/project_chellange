@@ -2,7 +2,7 @@
 
 #Main Routing
 angular.module "foxrey"
-  .config ($stateProvider, $urlRouterProvider) ->
+  .config ($stateProvider, $urlRouterProvider, config) ->
 
     $urlRouterProvider.otherwise '/'
 
@@ -42,27 +42,27 @@ angular.module "foxrey"
         controller: "LoginCtrl"
 
       .state "transport",
-        url: ""
+        url: "/tp"
         abstract: true
-        templateUrl: '<ui-view/>'
-        data:
-          permissions:
-            only: ['tp']
-            redirectTo: 'login'
+        template: '<div ui-view></div>'
+        # data:
+        #   permissions:
+        #     only: [config.]
+        #     redirectTo: 'login'
 
       .state "transport.dashboard",
         url: "/dashboard"
-        templateUrl: "app/main/dashboard/dashboard.html"
+        templateUrl: "/app/main/dashboard/dashboard.html"
 
       .state "shipper",
-        url: "/dashboard"
+        url: "/shipper"
         abstract: true
-        templateUrl: '<ui-view/>'
-        data:
-          permissions:
-            only: ['shipper']
-            redirectTo: 'login'
+        template: '<div ui-view></div>'
+        # data:
+        #   permissions:
+        #     only: ['shipper']
+        #     redirectTo: 'login'
 
       .state "shipper.dashboard",
-        url: ""
-        templateUrl: "app/main/dashboard/dashboard.html"
+        url: "/dashboard"
+        templateUrl: "/app/main/dashboard/dashboard.html"

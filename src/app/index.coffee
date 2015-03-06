@@ -22,23 +22,13 @@ angular.module("foxrey", [
       enabled: true
       requireBase: false
 
-    #ng-token-auth
-    # $authProvider.configure config.auth
-
-  .run(['$rootScope', '$state', '$stateParams', '$http', 'Permission', (
-      $rootScope, $state, $stateParams, $http, Permission) ->
+  .run(['$rootScope', '$state', '$stateParams', '$http', 'Permission', 'config', 'AuthService', (
+      $rootScope, $state, $stateParams, $http, Permission, config, AuthService) ->
     #here will be general and main variables and configurations
 
-    # It's very handy to add references to $state and $stateParams to the $rootScope
-    # so that you can access them from any scope within your applications.For example,
-    # <li ng-class="{ active: $state.includes('contacts.list') }"> will set the <li>
-    # to active whenever 'contacts.list' or one of its decendents is active.
-    $rootScope.$state = $state
-    $rootScope.$stateParams = $stateParams
-
     # Permission.defineRole 'tp', (stateParams) ->
-    #   isAuthorized 'tp'
+    #   AuthService.isAuthorized config.transport
 
     # Permission.defineRole 'shipper', (stateParams) ->
-    #   isAuthorized 'shipper'
+    #   AuthService.isAuthorized config.shipper
   ])

@@ -7,6 +7,9 @@ angular.module "foxrey"
         @getUser
         @logout
 
+      get: (slug, object) ->
+        $http.get([config.auth.apiUrl, slug].join('') )
+
       getUser: (obj)->
         req =
           method: 'GET'
@@ -19,8 +22,6 @@ angular.module "foxrey"
             res.data
 
       logout: (obj)->
-        console.log "whatahell", obj.token
-
         req =
           method: 'GET'
           url: config.auth.apiUrl + config.auth.signout

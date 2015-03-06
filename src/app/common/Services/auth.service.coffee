@@ -3,24 +3,28 @@
 angular.module "foxrey"
   .factory 'AuthService', ($http, Session, config, localStorageService, api) ->
     class AuthService
-      contructor: ->
-        @login()
-        @isAuthenticated()
-        @isAuthorized()
-        @getToken()
-        @wrapActions()
-        @getUserInfo()
-        @user()
+      constructor: ->
+
 
       login: (credentials) ->
+
+        console.log @isAuthenticated()
         $http.post(config.auth.apiUrl + config.auth.emailSignInPath, credentials)
-          .then (res) ->
+          .then (res) =>
             localStorageService.set 'auth', res.data
+            console.log @isAuthenticated()
             res.data
       logout: ->
         api.logout(localStorageService.get 'auth')
           .then (res) ->
+            localStorageService.remove 'auth'
+            localStorageService.remove 'userInfo'
             res
+          .catch (res) ->
+            if res.data.status == 'ok'
+              localStorageService.remove 'auth'
+              localStorageService.remove 'userInfo'
+              res
       user: ->
         localStorageService.get 'userInfo' if @isAuthenticated
       getUserInfo: ->
@@ -36,7 +40,7 @@ angular.module "foxrey"
         console.log localStorageService.get 'userInfo'
         @isAuthenticated() && authorizedRoles.indexOf(Session.user.role) != -1
       getToken: ->
-        Session.token
+        Session.user.token
       wrapActions: (resource, actions) ->
         tokenWrapper = (resource, action) ->
           resource['_' + action] = resource[action]
