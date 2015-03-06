@@ -59,7 +59,7 @@ angular.module "foxrey"
         url: "/shipper"
         abstract: true
         template: '<div ui-view></div>'
-        controller: "baseShipperCtrl as base"
+        controller: "BaseShipperCtrl as base"
         data:
           permissions:
             only: [config.userRoles.shipper]

@@ -4,7 +4,11 @@ angular.module "foxrey"
   .factory 'AuthService', ($http, Session, config, localStorageService, API) ->
     class AuthService
       constructor: ->
+        @init()
 
+      init: ->
+        Session.create localStorageService.get 'userInfo'
+        console.log Session.type
       login: (credentials) ->
         API.post(config.apiUrl.signin, credentials)
           .then (res) =>
@@ -22,33 +26,18 @@ angular.module "foxrey"
               localStorageService.remove 'auth'
               localStorageService.remove 'userInfo'
               res
-      user: ->
-        localStorageService.get 'userInfo' if @isAuthenticated
+      userInfo: ->
+        localStorageService.get 'userInfo'
       getUserInfo: ->
         API.get(config.apiUrl.getUser)
           .then (info) ->
-            localStorageService.set 'userInfo', info
-            console.log 'creating session with', info
+            localStorageService.set 'userInfo', info.data
+            console.log 'creating session with', info.data
             Session.create info
             info
-      isAuthenticated: ->
-        !!Session.type
-      isAuthorized: (authorizedRoles) =>
+      isAuthorized: (authorizedRoles) ->
         authorizedRoles = [authorizedRoles] if !angular.isArray(authorizedRoles)
         console.log authorizedRoles, Session.type
-        console.log 'logged in?', @isAuthenticated()
-        console.log authorizedRoles.indexOf(Session.type) != -1
-        @isAuthenticated() && authorizedRoles.indexOf(Session) != -1
-      getToken: ->
-        Session.user.token
-      wrapActions: (resource, actions) ->
-        tokenWrapper = (resource, action) ->
-          resource['_' + action] = resource[action]
-          resource[action] = (data, success, error) ->
-            resource['_' + action] (angular.extend {}, data || {}, {access_token: tokenHandler.get()}, success, error)
-
-        wrappedResource = resource
-        (tokenWrapper(wrappedResource, action) for action in actions)
-        wrappedResource
+        authorizedRoles.indexOf(Session.type) != -1
 
     new AuthService()

@@ -29,9 +29,9 @@ angular.module("foxrey", [
       $rootScope, $state, $stateParams, $http, Permission, config, AuthService, DS) ->
     #here will be general and main variables and configurations
 
-    Permission.defineRole 'tp', (stateParams) ->
+    Permission.defineRole 'tp', () ->
       AuthService.isAuthorized config.userRoles.transport
 
-    Permission.defineRole 'shipper', (stateParams) ->
+    Permission.defineRole 'sheeper', () ->
       AuthService.isAuthorized config.userRoles.shipper
   ])

@@ -8,14 +8,12 @@ angular.module "foxrey"
 
       token: ->
         value = localStorageService.get 'auth'
-        console.log value
         value = value.token if value
 
       url: (slug) ->
         [config.apiUrl.base, slug].join('')
 
       get: (slug, object) =>
-        console.log "token used", @token()
         DSHttpAdapter.GET @url(slug), {headers: { token: @token() }, params: object}
 
       post: (slug, object, JSON) =>
