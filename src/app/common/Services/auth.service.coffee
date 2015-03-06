@@ -13,7 +13,7 @@ angular.module "foxrey"
             console.log @isAuthenticated()
             res.data
       logout: ->
-        API.logout()
+        API.get(config.apiUrl.signout)
           .then (res) ->
             localStorageService.remove 'auth'
             localStorageService.remove 'userInfo'

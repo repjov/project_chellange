@@ -21,6 +21,4 @@ angular.module "foxrey"
       post: (slug, object, JSON) =>
         DSHttpAdapter.POST @url(slug), object, {headers: { token: @token() }, params: JSON}
 
-
-
     new Api()

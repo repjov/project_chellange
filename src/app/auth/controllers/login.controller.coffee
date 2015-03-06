@@ -6,8 +6,8 @@ angular.module "foxrey"
       AuthService.login(user).then (res) ->
         console.log res
         AuthService.getUserInfo().then (info) ->
-          console.log info
-          switch info.type
+          console.log info.data.type
+          switch info.data.type
             when config.userRoles.transport then db = 'transport.dashboard'
             when config.userRoles.shipper then db = 'shipper.dashboard'
             else db = 'home'
