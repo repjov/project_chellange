@@ -79,6 +79,16 @@ angular.module "foxrey"
         ncyBreadcrumb: {
           label: 'Deliveries'
         }
+
+      .state "filter",
+        url: "/filter",
+        templateUrl: "/components/filter/filter.html",
+        data: {
+          permissions: {
+            except: ['shipper', 'tp'],
+            redirectTo: 'inside'
+          }
+        }
           
 
 

@@ -8,8 +8,9 @@ angular.module "foxrey"
           .one 'deliveries'
           .get()
 
-      @getByFilter = (category, pickup_date, limit, skip) ->
+      @getByFilter = (query) ->
         
         Restangular
-          .getList 'deliveries', {category:category, pickup_date:pickup_date, limit:limit, skip:skip}
+          .one 'deliveries'
+          .get query
           
