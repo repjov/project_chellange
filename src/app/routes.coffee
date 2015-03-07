@@ -48,7 +48,7 @@ angular.module "foxrey"
         controller: "BaseTransportCtrl as base"
         data:
           permissions:
-            only: [config.userRoles.transport]
+            only: ['transport']
             redirectTo: 'login'
 
       .state "transport.dashboard",
@@ -62,7 +62,7 @@ angular.module "foxrey"
         controller: "BaseShipperCtrl as base"
         data:
           permissions:
-            only: [config.userRoles.shipper]
+            only: ['shipper']
             redirectTo: 'login'
 
       .state "shipper.dashboard",
