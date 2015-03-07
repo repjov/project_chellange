@@ -32,11 +32,9 @@ angular.module "foxrey"
         API.get(config.apiUrl.getUser)
           .then (info) ->
             localStorageService.set 'userInfo', info.data
-            console.log 'creating session with', info.data
             Session.create info
             info
       isAuthenticated: ->
-        console.log Session.type
         Session.type?
       isAuthorized: (authorizedRoles) =>
         authorizedRoles = [authorizedRoles] if !angular.isArray authorizedRoles
