@@ -1,0 +1,29 @@
+<!-- delivery-search.html -->
+
+<form name="form-inline" novalidate>
+  <div class="form-group">
+    <label class="sr-only" for="category">Filter by category</label>
+    <select name="category" class="form-control" ng-model="filter.category">
+      <option value="" disabled selected>Filter by category</option>
+      <option>1</option>
+      <option>2</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <div class="input-group">
+      <label class="sr-only" for="category">Date</label>
+      <input type="text" name="date" class="form-control" placeholder="Date" datepicker-popup="dd-MMMM-yyyy" is-open="opened" ng-model="filter.dt" close-text="Close" />
+      <span class="input-group-btn">
+        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+      </span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="sr-only" for="category">Pickup City</label>
+    <input type="text" class="form-control" placeholder="Pickup City" ng-model="filter.pickupCity" />
+  </div>
+  <div class="form-group">
+    <label class="sr-only" for="category">Delivery City</label>
+    <input type="text" class="form-control" placeholder="Delivery City" ng-model="filter.deliveryCity" />
+  </div>
+</form>

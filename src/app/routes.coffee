@@ -68,3 +68,8 @@ angular.module "foxrey"
       .state "shipper.dashboard",
         url: "/dashboard"
         templateUrl: "/app/shipper/views/dashboard.html"
+
+      .state "delivery-search",
+      url: "/delivery"
+      templateUrl: "/app/public/views/delivery-search.html"
+      controller: "DeliverySearchCtrl"
