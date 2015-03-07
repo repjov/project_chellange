@@ -5,12 +5,25 @@
   padding: 0.2em 0;
 }
 
-.thumbnail {
+.thumbnail1 {
   height: 200px;
 
   img.pull-right {
     width: 50px;
   }
 }
+
+form > div.form-group.col-md-3 > select {
+  width: 100%;
+}
+
+form > div.form-group.col-md-3 > input {
+  width: 100%;
+}
+
+.top-buffer {
+  margin-top: 20px;
+}
+
 // injector
 // endinjector

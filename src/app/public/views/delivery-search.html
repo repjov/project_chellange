@@ -1,29 +1,46 @@
 <!-- delivery-search.html -->
 
-<form name="form-inline" novalidate>
-  <div class="form-group">
-    <label class="sr-only" for="category">Filter by category</label>
-    <select name="category" class="form-control" ng-model="filter.category">
-      <option value="" disabled selected>Filter by category</option>
-      <option>1</option>
-      <option>2</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <div class="input-group">
-      <label class="sr-only" for="category">Date</label>
-      <input type="text" name="date" class="form-control" placeholder="Date" datepicker-popup="dd-MMMM-yyyy" is-open="opened" ng-model="filter.dt" close-text="Close" />
-      <span class="input-group-btn">
-        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-      </span>
+<div class="row">
+  <form class="form-inline" name="form" novalidate>
+    <div class="form-group col-md-3">
+      <label class="sr-only" for="category">Filter by category</label>
+      <select name="category" class="form-control max-width" ng-model="filter.category">
+        <option value="" disabled selected>Filter by category</option>
+        <option>1</option>
+        <option>2</option>
+      </select>
+    </div>
+    <div class="form-group col-md-3">
+      <div class="input-group">
+        <label class="sr-only" for="category">Date</label>
+        <input type="text" name="date" class="form-control" placeholder="Date" datepicker-popup="dd-MMMM-yyyy" is-open="opened" ng-model="filter.dt" close-text="Close" />
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+        </span>
+      </div>
+    </div>
+    <div class="form-group col-md-3">
+      <label class="sr-only" for="category">Pickup City</label>
+      <input type="text" class="form-control" placeholder="Pickup City" ng-model="filter.pickupCity" />
+    </div>
+    <div class="form-group col-md-3">
+      <label class="sr-only" for="category">Delivery City</label>
+      <input type="text" class="form-control" placeholder="Delivery City" ng-model="filter.deliveryCity" />
+    </div>
+  </form>
+</div>
+
+<div class="row top-buffer">
+  <div class="col-sm-6 col-md-4" ng-repeat="delivery in deliveries">
+    <div class="thumbnail">
+      <p class="text-center">{{delivery.id}}</p>
+      <div class="caption">
+        <h3 class="text-center">{{delivery.name}}</h3>
+        <p class="text-center">{{delivery.date}}</p>
+        <p class="text-center">{{delivery.from}}</p>
+        <p class="text-center">{{delivery.to}}</p>
+        <p class="text-center"><a href="#" class="btn btn-primary" role="button">Quote</a></p>
+      </div>
     </div>
   </div>
-  <div class="form-group">
-    <label class="sr-only" for="category">Pickup City</label>
-    <input type="text" class="form-control" placeholder="Pickup City" ng-model="filter.pickupCity" />
-  </div>
-  <div class="form-group">
-    <label class="sr-only" for="category">Delivery City</label>
-    <input type="text" class="form-control" placeholder="Delivery City" ng-model="filter.deliveryCity" />
-  </div>
-</form>
+</div>
