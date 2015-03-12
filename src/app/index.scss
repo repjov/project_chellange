@@ -12,5 +12,153 @@
     width: 50px;
   }
 }
+.btn{
+	text-transform: uppercase;
+}
+input[type="text"],select,input[type="number"], input[type="password"],input[type="email"]{
+	display: block;
+	width:100%;
+	height:40px;
+	padding:0 15px;
+}
+.grey-block{
+	margin-top: 10px;
+	background-color: #ccc;
+	padding-bottom: 20px;
+	text-align:center;
+}
+.form-row{
+	margin-bottom:20px;
+	position: relative;
+	&--expired{
+		text-align: left;
+		input{
+			display: inline-block;
+			width:151px;
+			text-align: center;
+		}
+	}
+}
+.input-errors{
+	position: absolute;
+	color:#D57F7F;
+	left: 100%;
+	margin-left: 10px;
+	white-space: nowrap;
+	top:0;
+	& + .input-errors{
+		margin-top:20px;
+	}
+}
+.tab{
+	text-transform: uppercase;
+	color:#fff;
+	font-size: 18px;
+	background-color: #8a9dae;
+	margin-bottom: 20px;
+	&.active{
+		background-color: #01bcd4;
+	}
+	&.done{
+		background-color: #323a45;
+	} 
+}
+h2{
+	font-size: 20px;
+	text-transform: uppercase;
+}
+.ng-submitted input.ng-invalid{
+	outline: 2px solid #D57F7F;
+}
+.error-message{
+	display: none;
+	text-align: center;
+	padding:20px;
+	background: #D57F7F;
+	color:#fff;
+	margin-top:20px;
+}
+.header{
+	height: 60px;
+	background-color: #e3e5ea;
+	&__user{
+		display: table;
+		float:right;
+		margin-top: 5px;
+		margin-right:15px;
+		&__img{
+			border-radius: 50%;
+			overflow: hidden;
+			height: 50px;
+			width:50px;
+			text-align:center;
+		}
+		&__name{
+			display: table-cell;
+			vertical-align: middle;
+			padding-left: 15px;
+		}	
+	}
+}
+.aside-menu{
+	background-color: #323a45;
+	&__top{
+		margin-bottom: 20px;
+		img{
+			display: block;
+			margin:0 auto;
+		}
+	}
+	&__tp{
+		text-transform: uppercase;
+		&__name{	
+			color:#fff;
+			font-size: 26px;
+		}
+		&__role{
+			color:#8395a3;
+			font-size:20px;
+		}
+	}
+	&__nav{
+		padding-left:  0;
+		&__list{
+			display: table;
+			width: 100%;		
+		}
+		li{
+			display: table-row;
+		}
+		a{
+			text-transform: uppercase;
+			color:#8395a3;
+			display: table-cell;
+			height: 40px;
+			text-align: left;
+			vertical-align: middle;
+			&.active{
+				color:#fff;
+				text-decoration: none;
+			}
+			&:hover{
+				color:#fff;
+			}
+		}
+	}
+}
+.img-container{
+	text-align: left;
+	img{
+		width:50px;
+		display: block;
+		float:left;
+	}
+}
+.filter-item{
+	height: 200px;
+	padding: 10px;
+	margin-top:20px;
+	border:1px solid #000; 
+}
 // injector
 // endinjector

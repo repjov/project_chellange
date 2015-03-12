@@ -1,0 +1,21 @@
+<div class="delivery-filter" ng-controller="filterDeliveryCtrl">
+	<form name="formFilter" class="row">
+		<div class="col-sm-3">
+			<select name="Category" ng-change="filterFunc(filter)" ng-model-options="{ debounce: 500 }" ng-model="filter.category">
+				<option value="office">Офисные принадлежности</option>
+				<option value="toys">Игрушки</option>
+			</select>
+		</div>
+		<div class="col-sm-3"><input ng-change="filterFunc(filter)" ng-model-options="{ debounce: 500 }" ng-model="filter.pickup_date" placeholder="Date" type="text"></div>
+		<div class="col-sm-3"><input ng-change="filterFunc(filter)" ng-model-options="{ debounce: 500 }" ng-model="filter.skip" placeholder="Skip" type="number"></div>
+		<div class="col-sm-3"><input ng-change="filterFunc(filter)" ng-model-options="{ debounce: 500 }" ng-model="filter.limit" placeholder="Limit" type="number"></div>
+	</form>
+	<div class="filter-item col-sm-4" ng-repeat="item in items">
+		<div>{{item.id}}</div>
+		<div>{{item.name}}</div>
+		<div>{{item.pickup_date}}</div>
+		<div class="img-container" ng-repeat="img in item.images">
+			<img src="" alt="" ng-src="{{img}}">
+		</div>
+	</div>
+</div>
